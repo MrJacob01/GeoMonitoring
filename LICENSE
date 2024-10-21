@@ -1,0 +1,90 @@
+# def analyseProcess(self):
+    #     self.m_donuts = []
+    #     self.chartView3.setRenderHint(QPainter.Antialiasing)
+    #     self.chart3 = self.chartView3.chart()
+    #     self.chart3.legend().setVisible(True)
+    #     self.chart3.setTitle("Nested donuts Chart")
+    #     self.chart3.setAnimationOptions(QChart.AllAnimations)
+    #     lists_regions = [100,90,120,70,80,85,78]
+    #     lists_regionss = ["Toshkent", "farg'ona", "qarshqadaryo", "surxon", "Namangan", "Jizzax", "Xorazm"]
+    #     minSize3 = 0.1
+    #     maxSize3 = 0.9
+    #     donutCount3 = 5
+    #     slice = 1
+    #     count = 0
+    #     t = 0
+    #     for i in range(donutCount3):
+    #         donut = QPieSeries()
+    #         for j in lists_regions[count:count+i]:
+    #             count+=1
+    #             slice_ = QPieSlice(str(f"{lists_regionss[t]}"+f" \n{j}ta"), j)
+    #             t += 1
+    #             slice_.setLabelVisible(True)
+    #             slice_.setLabelColor(Qt.white)
+    #             slice_.setLabelPosition(QPieSlice.LabelInsideTangential)
+    #             slice_.hovered[bool].connect(functools.partial(self.explodeSlice, slice_=slice_))
+    #             donut.append(slice_)
+    #             donut.setHoleSize(minSize3 + i * (maxSize3 - minSize3) / donutCount3)
+    #             donut.setPieSize(minSize3 + (i + 1) * (maxSize3 - minSize3) / donutCount3)
+    #         self.m_donuts.append(donut)
+    #         self.chartView3.chart().addSeries(donut)
+    #         slice += 1
+    #     self.updateTimer = QTimer(self)
+    #     self.updateTimer.start(1250)
+    #     self.tabWidget.setCurrentIndex(2)
+    #
+    # def explodeSlice(self, exploded, slice_):
+    #     if exploded:
+    #         self.updateTimer.stop()
+    #         sliceStartAngle = slice_.startAngle()
+    #         sliceEndAngle = slice_.startAngle() + slice_.angleSpan()
+    #         donut = slice_.series()
+    #         seriesIndex = self.m_donuts.index(donut)
+    #         for i in range(seriesIndex + 1, len(self.m_donuts)):
+    #             self.m_donuts[i].setPieStartAngle(sliceEndAngle)
+    #             self.m_donuts[i].setPieEndAngle(360 + sliceStartAngle)
+    #     else:
+    #         for donut in self.m_donuts:
+    #             donut.setPieStartAngle(0)
+    #             donut.setPieEndAngle(360)
+    #         self.updateTimer.start()
+    #     slice_.setExploded(exploded)
+
+    # male_barchart = ''' SELECT position, COUNT(*) AS Male_Count FROM employee WHERE gender='Male' GROUP BY position  '''
+    #
+    # male_barchart_sql = cur.execute(male_barchart).fetchall()
+    #
+    # series = QBarSeries()
+    # set0 = QBarSet("Male")
+    #
+    # for male in male_barchart_sql:
+    #     set0 << male[1]
+    #     series.append(set0)
+    #
+    # female_barchart = ''' SELECT position, COUNT(*) AS Female_Count FROM employee WHERE gender='Female' GROUP BY position  '''
+    #
+    # female_barchart_sql = cur.execute(female_barchart).fetchall()
+    #
+    # set1 = QBarSet("Female")
+    # for female in female_barchart_sql:
+    #     set1 << female[1]
+    #     series.append(set1)
+
+    # chart = QChart()
+    # chart.addSeries(series)
+    # chart.setTitle("Gender- Employee Positions Total ")
+    # chart.setAnimationOptions(QChart.SeriesAnimations)
+    #
+    # categories = ["Auditor", "Clerk", "Directors", "Managers", "VOs"]
+    # axis = QBarCategoryAxis()
+    # axis.append(categories)
+    # chart.createDefaultAxes()
+    # chart.setAxisX(axis, series)
+    #
+    # chart.legend().setVisible(True)
+    # chart.legend().setAlignment(Qt.AlignBottom)
+    #
+    # chartView = QChartView(chart)
+    # chartView.setRenderHint(QPainter.Antialiasing)
+    #
+    # self.ui.widget_321.setChart(chart)
